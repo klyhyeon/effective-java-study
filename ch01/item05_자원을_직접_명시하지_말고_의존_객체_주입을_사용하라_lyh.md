@@ -26,3 +26,20 @@ public class Cars {
     }
 }
 ```
+
+의존 객체 주입 패턴의 변형으론 생성자에 자원 팩터리(Supplier<T>)넘겨주는 방식이 있습니다. 팩터리란 호출할 때마다 특정 타입의 인스턴스를 반복해서 만들어주는 객체를 말합니다.
+
+```java
+
+public class Mosaic {
+    
+    private Mosaic(Supplier<? extends Tile> tileFactory) {
+        
+    }
+    
+    Mosaic create(Supplier<? extends Tile> tileFactory) {
+        return new Mosaic(tileFactory);    
+    }
+}
+}
+```
