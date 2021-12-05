@@ -1,4 +1,4 @@
-package yuhyeon.ch01;
+package yuhyeon.ch02;
 
 import java.util.EnumSet;
 

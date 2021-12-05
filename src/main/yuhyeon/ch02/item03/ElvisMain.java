@@ -1,4 +1,8 @@
-package yuhyeon.ch01.item03;
+package yuhyeon.ch02.item03;
+
+import java.util.Collections;
+import java.util.LinkedList;
+import java.util.List;
 
 public class ElvisMain {
 
@@ -12,5 +16,9 @@ public class ElvisMain {
         System.out.println("Singleton:: " + (notSingleton == notSingleton2));
 
         ElvisSingletonEnum.INSTANCE.leaveTheBuilding();
+
+        //불변객채
+
+
     }
 }
