@@ -117,7 +117,7 @@ public class RomanNumerals {
 
 ### 참조
 [참조1](https://jaehun2841.github.io/2019/01/07/effective-java-item6/#%EC%95%84%EC%A3%BC-%EC%95%88-%EC%A2%8B%EC%9D%80-%EA%B0%9D%EC%B2%B4-%EC%83%9D%EC%84%B1%EC%9D%98-%EC%98%88)
-[참조2](https://jaehun2841.github.io/2019/01/07/effective-java-item6/#%EC%95%84%EC%A3%BC-%EC%95%88-%EC%A2%8B%EC%9D%80-%EA%B0%9D%EC%B2%B4-%EC%83%9D%EC%84%B1%EC%9D%98-%EC%98%88)
+[참조2](https://stackoverflow.com/questions/12044721/best-performance-for-string-to-boolean-conversion)
 
 
 
