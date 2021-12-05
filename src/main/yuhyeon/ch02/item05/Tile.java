@@ -1,4 +1,4 @@
-package yuhyeon.ch01.item05;
+package yuhyeon.ch02.item05;
 
 public class Tile {
 

@@ -1,4 +1,4 @@
-package yuhyeon.ch01.item03;
+package yuhyeon.ch02.item03;
 
 public class ElvisNotSingleton {
 
