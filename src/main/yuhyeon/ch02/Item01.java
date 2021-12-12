@@ -1,5 +1,6 @@
 package yuhyeon.ch02;
 
+import java.util.Arrays;
 import java.util.EnumSet;
 
 public class Item01 {
@@ -18,6 +19,7 @@ public class Item01 {
         System.out.println("Set 2 : " +  set2);
         System.out.println("Set 3 : " +  set3);
         System.out.println("Set 4 : " +  set4);
+
     }
 
 
