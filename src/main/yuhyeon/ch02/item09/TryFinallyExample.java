@@ -1,7 +1,8 @@
 package yuhyeon.ch02.item09;
 
+import org.assertj.core.api.ThrowableAssert;
+
 import java.io.BufferedReader;
-import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
 
@@ -26,6 +27,7 @@ public class TryFinallyExample {
                     new BufferedReader(new FileReader(path))) {
             return br.readLine();
         }
+
     }
 }
 
