@@ -52,7 +52,7 @@ public class Item06 {
         boolean bl2 = Boolean.valueOf("true");
         boolean bl3 = Boolean.parseBoolean("true");
 
-        bl.equals(bl2)
+//        bl.equals(bl2)
 
     }
 }
