@@ -1,19 +1,11 @@
 package yuhyeon.ch05;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Set;
-import java.util.TreeSet;
+import java.util.*;
 
 public class GenericStudy {
 
     public static void main(String[] args) {
-        rawTypeUsecase();
-
-        List<String> list1 = new ArrayList<>();
-        Integer i = 1;
-        unsafeAdd(list1, i);
-        String s = list1.get(0);
+//        rawTypeUsecase();
     }
 
     private static void unsafeAdd(List s1, Object o1) {
@@ -27,7 +19,7 @@ public class GenericStudy {
 
     private static void rawTypeUsecase() {
         Set o = new TreeSet();
-        if (o instanceof Set<String>) {
+        if (o instanceof Collection<?>) {
             Set<?> s = (Set<?>) o;
             System.out.println("cast o to Set<?>");
         }
