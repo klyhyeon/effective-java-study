@@ -12,7 +12,7 @@ public class TryFinallyExampleTest {
     @DisplayName("Suppressed_테스트")
     void Suppressed_테스트() {
         assertThatThrownBy(() -> TryFinallyExample.firstLineOfFileTryResources("testPath", "a"))
-                .isInstanceOf(NullPointerException.class).hasMessageContaining("null");
+                .isInstanceOf(NullPointerException.class);
 
     }
 }
