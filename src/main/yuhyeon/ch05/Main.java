@@ -14,5 +14,6 @@ public class Main {
         Class<?> favoriteClass = f.getFavorite(Class.class);
 
         System.out.printf("%s %x %s%n", favoriteString, favoriteInteger, favoriteClass.getName());
+
     }
 }
