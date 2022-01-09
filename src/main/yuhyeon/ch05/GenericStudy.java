@@ -6,6 +6,7 @@ public class GenericStudy {
 
     public static void main(String[] args) {
 //        rawTypeUsecase();
+        union(Set.of("set1"), Set.of("set2"));
     }
 
     private static void unsafeAdd(List s1, Object o1) {
@@ -23,5 +24,11 @@ public class GenericStudy {
             Set<?> s = (Set<?>) o;
             System.out.println("cast o to Set<?>");
         }
+    }
+
+    public static <E> Set<E> union(Set<E> s1, Set<E> s2) {
+        Set<E> result = new HashSet<>(s1);
+        result.addAll(s2);
+        return result;
     }
 }
