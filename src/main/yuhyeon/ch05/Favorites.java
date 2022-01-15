@@ -6,7 +6,6 @@ import java.util.Objects;
 
 public class Favorites {
 
-    //rebase
     private Map<Class<?>, Object> favorites = new HashMap<>();
 
     public <T> void putFavorite(Class<T> type, T instance) {
