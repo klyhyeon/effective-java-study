@@ -27,5 +27,13 @@ public class Main {
                         toSet())));
         //{ANNUAL=[Plant{name='rose', lifeCycle=ANNUAL}], BIENNIAL=[Plant{name='camomile', lifeCycle=BIENNIAL}]}
 
+        System.out.println("class:: " + garden.stream()
+                .collect(Collectors.groupingBy(p -> p.lifeCycle,
+                        () -> new EnumMap<>(Plant.LifeCycle.class),
+                        toSet())).getClass());
+
+        System.out.println(
+                Arrays.toString(Phase.Transition.values())
+        );
     }
 }
