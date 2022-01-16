@@ -1,5 +1,7 @@
 package yuhyeon.ch06.enummap;
 
+import java.util.HashMap;
+
 public class Plant {
 
     enum LifeCycle { ANNUAL, PERENNIAL, BIENNIAL }
@@ -14,6 +16,7 @@ public class Plant {
 
     @Override
     public String toString() {
+        HashMap<String, String> map = new HashMap<>();
         return "Plant{" +
                 "name='" + name + '\'' +
                 ", lifeCycle=" + lifeCycle +

@@ -28,7 +28,7 @@ public enum Phase {
         private static final Transition[][] TRANSITIONS = {
                 {null, MELT, SUBLIME},
                 {FREEZE, null, BOIL},
-                {DEPOSIT, CONDENSE, null}
+                {DEPOSIT, CONDENSE, null},
         };
 
         //상전이 맵을 초기화한다.
@@ -49,12 +49,14 @@ public enum Phase {
                          * keyMapper – a mapping function to produce keys
                          * valueMapper – a mapping function to produce values
                          * mergeFunction – a merge function, used to resolve collisions between values associated with the same key, as supplied to Map.merge
+                         * Supplier<M> mapFactory
                          */
                         //value
                         Collectors.toMap(
                                 t -> t.to,
                                 t -> t,
-                                (x, y) -> y, () -> new EnumMap<>(Phase.class)
+                                (x, y) -> y, //이후 상태를 전이에 대응시키는 병합(실제로 쓰이진 않음)
+                                () -> new EnumMap<>(Phase.class)
                         )
                 )
         );
