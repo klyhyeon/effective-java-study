@@ -1,0 +1,74 @@
+# [item40]. @Override 애너테이션을 일관되게 사용하라
+@Override 애너테이션을 일관되게 사용하면 여러 가지 악명 높은 버그들을 예방해준다.
+
+## 영어 알파벳 2개로 구성된 문자열을 표현하는 클래스 - 버그를 찾아보자.
+```java
+class Bigram {
+    private final char first;
+    private final char second;
+    
+    public Bigram(char first, char second) {
+        this.first = first;
+        this.second = second;
+    }
+    
+    public boolean equals(Bigram b) {
+        return b.first == first && b.second == second;
+    }
+    
+    public int hashCode() {
+        return 31 * first + second;
+    }
+}
+```
+
+## 실행 코드
+```java
+public class Item40 {
+	public static void main(String[] args) {
+        Set<Bigram> s = new HashSet<>();
+        for (int i = 0; i < 10; i++)
+            for (char ch = 'a'; ch <= 'z'; ch++)
+                s.add(new Bigram(ch, ch));
+        System.out.println(s.size());
+    }
+}
+```
+
+- 원하는 결과는 26 이었으나, 260이 출력된다.
+
+## 이유
+- equals를 재정의(Overriding) 한 것이 아니라 다중정의(Overloading) 한 꼴이다.
+- equals를 @Override로 재정의 하지 않으면 그 클래스의 인스턴스는 오직 자기 자신과만 같게 된다.
+> reference
+https://velog.io/@sonypark/Java-equals-hascode-%EB%A9%94%EC%84%9C%EB%93%9C%EB%8A%94-%EC%96%B8%EC%A0%9C-%EC%9E%AC%EC%A0%95%EC%9D%98%ED%95%B4%EC%95%BC-%ED%95%A0%EA%B9%8C
+
+따라서 equals 부분을 다음과 같이 수정해야 한다.
+```java
+@Override
+    public boolean equals(Object o) {
+    	if(!(o instanceof Bigram)) return false;
+    	
+    	Bigram b = (Bigram) o;
+    	return b.first == first && b.second == second; 
+    }
+```
+- @Override를 붙이는 것만으로도 IDE는 컴파일 오류를 알려준다.
+- 따라서, **상위 클래스의 메서드를 재정의하려는 모든 메서드에 @Override 에너테이션을 달자.**
+
+## @Override를 달지 않아도 되는 한 가지 경우
+- 구체 클래스에서 상위 클래스의 추상 메서드를 재정의할 때는 굳이 @Override를 달지 않아도 된다.
+- 구현되지 않은 추상 메서드가 남아 있다면 컴파일러가 알려준다.
+
+## 인터페이스의 메서드를 재정의 할 때도 사용 가능
+- 인터페이스에 default 메서드가 있을 경우, 인터페이스를 구현한 메서드에 @Override를 사용하면 시그니처가 올바른지 재차 확인 가능하다. 
+- 구현하려는 인터페이스에 default 메서드가 없다면 생략하여 깔끔하게 유지할 수도 있겠다.
+> reference
+https://programmers.co.kr/learn/courses/5/lessons/241
+
+## 핵심 정리
+```
+재정의한 모든 메서드에 @Override를 의식적으로 달면 실수했을 때 컴파일러가 바로 알려줄 것이다.
+예외는 한 가지뿐이다. 구체 클래스에서 상위 클래스의 추상 메서드를 재정의한 경우엔 @Override를 달지 않아도 된다.
+하지만, 단다고 해서 해로울 것이 없다.
+```
